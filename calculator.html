@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+
+<body>
+    <h1 data-text="Welcome to calculate me!">Welcome to calculate me!</h1>
+
+    <div class="container">
+        <input class="inp" type="text">
+        <div class="row">
+            <button class="c">C</button>
+            <button class="c c1">X</button>
+            <button class="c c2">%</button>
+            <button class="divide">/</button>
+            <button class="num1">7</button>
+            <button class="num1 num2">8</button>
+            <button class="num1 num3">9</button>
+            <button class="divide divide1">*</button>
+            <button class="num1 num4">4</button>
+            <button class="num1 num5">5</button>
+            <button class="num1 num6">6</button>
+            <button class="divide divide2">-</button>
+            <button class="num1 num7">1</button>
+            <button class="num1 num8">2</button>
+            <button class="num1 num9">3</button>
+            <button class="divide divide3">+</button>
+            <button class="zero">0</button>
+            <button>.</button>
+            <button class="divide divide4">=</button>
+        </div>
+    </div>
+
+</body>
+<script>
+    var inp = document.querySelector('input')
+    var btn = document.querySelectorAll('button')
+    btn.forEach((ele) => {
+        ele.addEventListener('click', (e) => {
+            if (e.target.innerText == '=') {
+                inp.value = eval(inp.value)
+            }
+            else if (e.target.innerHTML === 'C') {
+                inp.value = "";
+            }
+            else if (e.target.innerHTML === 'X') {
+                inp.value = inp.value.slice(0, -1);
+            }
+            else {
+                inp.value += e.target.innerText
+            }
+        })
+    })
+</script>
+
+</html>
